@@ -9,24 +9,43 @@ def sqrt(number):
     '''
     # These assertion errors assert that the argument, number is both greater than or equal to 0
     # and that the number is an interger.
+    assert type(number) == int, "The value must be an integer"
     assert number >= 0, "The number must be greater than or equal to 0"
-    assert type(number) == int, "The number must be an integer"
     
-    # For a number == 1, this conditional returns its square root with a runtime of
-    # O(1).
-    if number == 1:
-        return number
     
-    # For any integers greater than 1, this while loop returns the square root value in
-    # O(log(n)) time, were n is defined as the range of the number from 0 to n inclusive.
-    # First an approximation of the median of the number is found, the query, and a while loop
-    # begins. If the query squared is greater than the number, then 1 is subtracted from they query,
-    # and the while loop resumes. Once the query squared is less than the number, the query
-    # is returned.
-    query = number // 2
-    while query**2 > number:
-        query -= 1
-    return query
+    # If the number is 0, return 0.
+    if number == 0:
+        return 0
+    # If the number is greater than or equal to 1 but less than 4, return 1.
+    if (number >= 1) and (number < 4):
+        return 1
+    
+
+    upper = number // 2
+    lower = upper // 2
+    while upper**2 > number:
+        if lower**2 <= number:
+            break
+        upper = lower
+        lower = upper // 2
+    
+    if upper**2 == number:
+        return upper
+    
+    if lower**2 == number:
+        return lower
+    
+    possible_sqrts = []
+    for i in range (lower, upper + 1, 1):
+        possible_sqrts.append(i)
+    
+    the_slice = -1
+    possible_answer = possible_sqrts[the_slice]
+    while possible_answer**2 > number:
+        the_slice -= 1
+        possible_answer = possible_sqrts[the_slice]
+    
+    return possible_answer
 
 # These are cases provided by Udacity. Each one should print "pass".
 print ("Pass" if  (3 == sqrt(9)) else "Fail")
@@ -35,14 +54,13 @@ print ("Pass" if  (4 == sqrt(16)) else "Fail")
 print ("Pass" if  (1 == sqrt(1)) else "Fail")
 print ("Pass" if  (5 == sqrt(27)) else "Fail")
 
-# This is an edge case that seeks to find the square root of 1 billion. This edge case does take 
-# some time. As n gets closer to infinity the runtime becomes closer to O(n/2), but is still
-# O(log(n)).
-edge_1 = sqrt(1000000000)
-print(edge_1) # This should be 31622.
-print(edge_1**2) # This should be 999950884.
-print((edge_1+1)**2) # This should be over 1 billion, showing that edge_1 is correct.
+# This is an edge case that seeks to find the square root of 1 trillion. This edge case does take 
+# some time, but still computes in O(log(n)) time.
+edge_1 = sqrt(1000000000000)
+print(edge_1) # This should be 1000000
+print(edge_1**2) # This should be 1000000000000, exactly 1 trillion.
 
 # This is an edge case in which I try to find the square root of "None". An assertion error is
 # raised.
 sqrt(None)
+
