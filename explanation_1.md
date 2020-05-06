@@ -1,0 +1,7 @@
+# Explanation of Problem_1.py
+
+## Code Design
+This code takes a number and finds the half and the quarter of the number, rounded down to the nearest integer, and the half and quarter are put into a while loop. While both numbers squared are greater than the target number, both numbers are floor divided by two and the while loop continues. Once the while loop breaks, a list from the range of the lower number (originally the quarter) to the higher number (originally the half) is created. Another while loop is initiated to work backwards through the list. Once a value from the list squared is less than or equal to the number, the while loop stops and the value is returned.
+
+## Code Efficiency
+The code has a O(log(n)) worst-case runtime, where n is defined as all numbers from 0 to the number inclusive. The first while loop, which determines the beginning and end slice for the list is O(log(n)). The for loop used to create the list uses O(log(n)), because it is only creating a fraction of the list. Finally, the while loop iterates backward through the list, which has a computation of O(log(n)). Since the greatest computation in the algorithm uses O(log(n)) steps, the worst case runtime is O(log(n)). The space efficiency for the algorithm is also O(log(n)) because the list needs to be stored before it is iterated through.
