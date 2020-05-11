@@ -56,7 +56,6 @@ print(get_min_max(len_0_list)) # This should produce (None, None).
 
 # This is an edge case of big numbers ranging from 1000000000000 to
 # 1000000000010. 
-
 big_numbers = [i for i in range (1000000000000, 1000000000010, 1)]
 random.shuffle(big_numbers)
 
