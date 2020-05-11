@@ -1,4 +1,4 @@
-# Explanation of Problem_2.py
+# Explanation of Problem_6.py
 
 ## Code Design
 This code iterates through a list. It sets the minimum and maximum values to the first value in the list. It then iterates through the rest of the list, updating the minimum and maximum values. Finally, it returns the minimum and maximum values in the tuple format: (minimum, maximum).
