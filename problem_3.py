@@ -10,6 +10,8 @@ def merge_helper(left, right):
         function.
     
     Returns: A new sorted list, merge_list.
+
+    References: Reference 1 in References.
     '''
     merge_list = []
     left_index = 0
@@ -49,6 +51,8 @@ def merge_sort(arr):
     Arguments: arr, an unsorted array.
     
     Returns: The sorted version of arr.
+
+    References: Reference 1 in References.
     '''
     # This is the base case.
     if len(arr) <= 1:
@@ -130,8 +134,15 @@ def rearrange_digits(input_list):
     return greatest_2_ints(chronological_list)
     
 def test_function(test_case):
+    '''
+    This is the boilerplate test function from Udacity.
+
+    References: Refernce 2 in References.
+    '''
     output = rearrange_digits(test_case[0])
     solution = test_case[1]
+
+    # Below is for the edge case in which an empty python list is the input.
     if len(test_case[0]) < 1:
         if test_case[0] == test_case[1]:
             print("Pass")
@@ -139,6 +150,7 @@ def test_function(test_case):
             print("Fail")
         return
     
+    # Below is the edge case in which the input is a python list with one integer. 
     if len(test_case[0]) == 1:
         if test_case[0] == test_case[1]:
             print("Pass")
@@ -146,6 +158,7 @@ def test_function(test_case):
             print("Fail")
         return
     
+    # This is for every other case that is not an edge case.
     if sum(output) == sum(solution):
         print("Pass")
     else:
@@ -168,3 +181,9 @@ test_function(test_case_3) # This should print "pass".
 # is that integer.
 test_case_4 = [[9], [9]]
 test_function(test_case_4) # This should print "pass".
+
+# REFERENCES
+# 1. Udacity Data Structures & Algorithms Nanodegree; 3) Basic Algorithms, 2) Sorting Algorithms,
+#       7) Merge Sort Walkthrough
+# 2. Udacity Data Structures & Algorithms Nanodegree; 3) Basic Algorithms, Projects vs Algorithms,
+#       4) Problem 3
