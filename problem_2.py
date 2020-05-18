@@ -10,6 +10,8 @@ def bin_search_helper(arr, target, beg, end):
         
     Returns: The index of the target number, or -1 if the target number is
         not in the array.
+    
+    References: This comes from Reference 2 of References.
     '''
     # This is a base case in which there is only one element in the array.
     # If the target is found, then the index is returned. Otherwise, -1 
@@ -109,6 +111,9 @@ def rotated_array_search(input_arr, target_num):
     
     Arguments: Input_arr = the array in which target_num is searched in.
         Target_num = the target num that is searched for in input_arr.
+
+    Returns: If target_num is in input_arr, this function returns the array index.
+        Otherwise, it returns -1.
     '''
     # In the case that there is nothing in the input array, this function
     # returns -1.
@@ -153,12 +158,30 @@ def test_function(test_case):
         print("Pass")
     else:
         print("Fail")
-    
-test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 6])
-test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
-test_function([[6, 7, 8, 1, 2, 3, 4], 8])
-test_function([[6, 7, 8, 1, 2, 3, 4], 1])
-test_function([[6, 7, 8, 1, 2, 3, 4], 10])
+
+# These are boilerplate test cases found in Reference 1.
+print(f'''
+Udacity's 5 Boilerplate Test Cases:''')  
+test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 6]) # This should print pass.
+test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1]) # This should print pass.
+test_function([[6, 7, 8, 1, 2, 3, 4], 8]) # This should print pass.
+test_function([[6, 7, 8, 1, 2, 3, 4], 1]) # This should print pass.
+test_function([[6, 7, 8, 1, 2, 3, 4], 10]) # This should print pass.
+
+# Edge Case 1: This is the edge case for an empty array.
+print(f'''
+Edge Case 1: The Case of an Empty Array''')
+test_function([[], 3]) # This should print pass.
+
+# Edge Case 2: This is an edge case that deals with large numbers. I use numbers 
+# ranging from One trillion to One trillion and nine.
+print(f'''
+Edge Case 2: Large Numbers''')
+import random
+large_numbers = [1000000000004, 1000000000005, 1000000000006, 1000000000007,
+    1000000000008, 1000000000009,
+    1000000000000, 1000000000001, 1000000000002, 1000000000003]
+test_function([large_numbers, 1000000000004]) # This should print pass.
 
 # REFERENCES:
 # 1. Data Structures & Algorithms Nanodegree; 3) Basic Algorithms;
