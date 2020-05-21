@@ -1,4 +1,4 @@
-# Explanation of Problem_5.py
+# Explanation of Problem_5.ipynb
 
 ## Code Design
 Suffixes() returns all the suffixes that form a complete word, given a prefix. It iterates through all the suffixes recursively. Through each iteration, it adds the suffix to a set if the suffix forms a word. Once the iteration is complete, the set is then converted to a list. The list is then sorted and returned.
